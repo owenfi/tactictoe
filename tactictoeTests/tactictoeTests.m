@@ -141,6 +141,39 @@
     STAssertTrue(pos.x == 1 && pos.y == 1, @"Computer needs to take middle to protect; but went in %d,%d",pos.x,pos.y);
 }
 
+-(void)testNoGoodMove
+{
+    gameBoard[3*0 + 0] = 'x'; // x e e
+    gameBoard[3*2 + 2] = 'x'; // e o e
+    gameBoard[3*1 + 1] = 'o'; // e e x
+    
+    
+    struct SNCoord pos = [ai makeMove:gameBoard];
+    
+    int moveErr = [self isLegalMove:pos onBoard:gameBoard];
+    STAssertTrue(moveErr == 0, @"Illegal Move %d",moveErr);
+    
+    // No assert, just make sure it returns something legal and doesn't crash
+}
+
+-(void)testAHAHumanWin
+{
+    // This was a BUG found through testing, when turns played in this order the comp loses, there are a couple variants
+    gameBoard[3*0 + 2] = 'x'; //[o]e x
+    gameBoard[3*1 + 1] = 'o'; // e o e
+    gameBoard[3*2 + 0] = 'x'; // x e x
+
+    
+    struct SNCoord pos = [ai makeMove:gameBoard];
+    
+    int moveErr = [self isLegalMove:pos onBoard:gameBoard];
+    STAssertTrue(moveErr == 0, @"Illegal Move %d",moveErr);
+    
+    // Make sure computer doesn't go in corner!
+    STAssertTrue(!(pos.x == 0 && pos.y == 0), @"Computer is opening itself up to lose!");
+    
+}
+
 // Test that even if the computer knows it will lose it still plays
 // Test the win move
 // Test that something is returned if the board is full

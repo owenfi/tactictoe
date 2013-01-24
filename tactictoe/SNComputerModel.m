@@ -92,6 +92,8 @@
         move.y = 0; move.x = 0;
         
         // Might this get tripped up if the player knows comp goes in this corner?
+    } else if(board[3*1 + 1] == 'o'){
+        move.y = 0; move.x =1;
     } else {
         move.y = 1; move.x = 1;
     }
