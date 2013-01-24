@@ -18,6 +18,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.a.text = @"";
+    self.b.text = @"";
+    self.c.text = @"";
+    self.d.text = @"";
+    self.e.text = @"";
+    self.f.text = @"";
+    self.g.text = @"";
+    self.h.text = @"";
+    self.i.text = @"";
 }
 
 - (void)didReceiveMemoryWarning

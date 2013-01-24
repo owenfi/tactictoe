@@ -10,6 +10,7 @@
 
 @interface SNMainViewController : UIViewController <SNFlipsideViewControllerDelegate, UIPopoverControllerDelegate>
 
+@property (nonatomic, retain) IBOutlet UILabel *a, *b, *c, *d, *e, *f, *g, *h, *i;
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 
 @end
