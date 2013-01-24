@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5AE604AE16B1187900116587 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE604AD16B1187900116587 /* UIKit.framework */; };
+		5AE604B016B1187900116587 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE604AF16B1187900116587 /* Foundation.framework */; };
+		5AE604B216B1187900116587 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE604B116B1187900116587 /* CoreGraphics.framework */; };
+		5AE604B816B1187900116587 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AE604B616B1187900116587 /* InfoPlist.strings */; };
+		5AE604BA16B1187900116587 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE604B916B1187900116587 /* main.m */; };
+		5AE604BE16B1187900116587 /* SNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE604BD16B1187900116587 /* SNAppDelegate.m */; };
+		5AE604C016B1187900116587 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE604BF16B1187900116587 /* Default.png */; };
+		5AE604C216B1187900116587 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE604C116B1187900116587 /* Default@2x.png */; };
+		5AE604C416B1187900116587 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AE604C316B1187900116587 /* Default-568h@2x.png */; };
+		5AE604C716B1187900116587 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE604C516B1187900116587 /* MainStoryboard_iPhone.storyboard */; };
+		5AE604CA16B1187900116587 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE604C816B1187900116587 /* MainStoryboard_iPad.storyboard */; };
+		5AE604CD16B1187900116587 /* SNMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE604CC16B1187900116587 /* SNMainViewController.m */; };
+		5AE604D016B1187900116587 /* SNFlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE604CF16B1187900116587 /* SNFlipsideViewController.m */; };
+		5AE604D816B1187900116587 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE604D716B1187900116587 /* SenTestingKit.framework */; };
+		5AE604D916B1187900116587 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE604AD16B1187900116587 /* UIKit.framework */; };
+		5AE604DA16B1187900116587 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE604AF16B1187900116587 /* Foundation.framework */; };
+		5AE604E216B1187900116587 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AE604E016B1187900116587 /* InfoPlist.strings */; };
+		5AE604E516B1187900116587 /* tactictoeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE604E416B1187900116587 /* tactictoeTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5AE604DB16B1187900116587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AE604A016B1187900116587 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AE604A816B1187900116587;
+			remoteInfo = tactictoe;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5AE604A916B1187900116587 /* tactictoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tactictoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AE604AD16B1187900116587 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5AE604AF16B1187900116587 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5AE604B116B1187900116587 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5AE604B516B1187900116587 /* tactictoe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tactictoe-Info.plist"; sourceTree = "<group>"; };
+		5AE604B716B1187900116587 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5AE604B916B1187900116587 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5AE604BB16B1187900116587 /* tactictoe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tactictoe-Prefix.pch"; sourceTree = "<group>"; };
+		5AE604BC16B1187900116587 /* SNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNAppDelegate.h; sourceTree = "<group>"; };
+		5AE604BD16B1187900116587 /* SNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNAppDelegate.m; sourceTree = "<group>"; };
+		5AE604BF16B1187900116587 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		5AE604C116B1187900116587 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		5AE604C316B1187900116587 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5AE604C616B1187900116587 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		5AE604C916B1187900116587 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		5AE604CB16B1187900116587 /* SNMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNMainViewController.h; sourceTree = "<group>"; };
+		5AE604CC16B1187900116587 /* SNMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNMainViewController.m; sourceTree = "<group>"; };
+		5AE604CE16B1187900116587 /* SNFlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNFlipsideViewController.h; sourceTree = "<group>"; };
+		5AE604CF16B1187900116587 /* SNFlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNFlipsideViewController.m; sourceTree = "<group>"; };
+		5AE604D616B1187900116587 /* tactictoeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tactictoeTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AE604D716B1187900116587 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5AE604DF16B1187900116587 /* tactictoeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tactictoeTests-Info.plist"; sourceTree = "<group>"; };
+		5AE604E116B1187900116587 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5AE604E316B1187900116587 /* tactictoeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tactictoeTests.h; sourceTree = "<group>"; };
+		5AE604E416B1187900116587 /* tactictoeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tactictoeTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5AE604A616B1187900116587 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AE604AE16B1187900116587 /* UIKit.framework in Frameworks */,
+				5AE604B016B1187900116587 /* Foundation.framework in Frameworks */,
+				5AE604B216B1187900116587 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AE604D216B1187900116587 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AE604D816B1187900116587 /* SenTestingKit.framework in Frameworks */,
+				5AE604D916B1187900116587 /* UIKit.framework in Frameworks */,
+				5AE604DA16B1187900116587 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5AE6049E16B1187900116587 = {
+			isa = PBXGroup;
+			children = (
+				5AE604B316B1187900116587 /* tactictoe */,
+				5AE604DD16B1187900116587 /* tactictoeTests */,
+				5AE604AC16B1187900116587 /* Frameworks */,
+				5AE604AA16B1187900116587 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5AE604AA16B1187900116587 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AE604A916B1187900116587 /* tactictoe.app */,
+				5AE604D616B1187900116587 /* tactictoeTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5AE604AC16B1187900116587 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AE604AD16B1187900116587 /* UIKit.framework */,
+				5AE604AF16B1187900116587 /* Foundation.framework */,
+				5AE604B116B1187900116587 /* CoreGraphics.framework */,
+				5AE604D716B1187900116587 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5AE604B316B1187900116587 /* tactictoe */ = {
+			isa = PBXGroup;
+			children = (
+				5AE604BC16B1187900116587 /* SNAppDelegate.h */,
+				5AE604BD16B1187900116587 /* SNAppDelegate.m */,
+				5AE604C516B1187900116587 /* MainStoryboard_iPhone.storyboard */,
+				5AE604C816B1187900116587 /* MainStoryboard_iPad.storyboard */,
+				5AE604CB16B1187900116587 /* SNMainViewController.h */,
+				5AE604CC16B1187900116587 /* SNMainViewController.m */,
+				5AE604CE16B1187900116587 /* SNFlipsideViewController.h */,
+				5AE604CF16B1187900116587 /* SNFlipsideViewController.m */,
+				5AE604B416B1187900116587 /* Supporting Files */,
+			);
+			path = tactictoe;
+			sourceTree = "<group>";
+		};
+		5AE604B416B1187900116587 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AE604B516B1187900116587 /* tactictoe-Info.plist */,
+				5AE604B616B1187900116587 /* InfoPlist.strings */,
+				5AE604B916B1187900116587 /* main.m */,
+				5AE604BB16B1187900116587 /* tactictoe-Prefix.pch */,
+				5AE604BF16B1187900116587 /* Default.png */,
+				5AE604C116B1187900116587 /* Default@2x.png */,
+				5AE604C316B1187900116587 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5AE604DD16B1187900116587 /* tactictoeTests */ = {
+			isa = PBXGroup;
+			children = (
+				5AE604E316B1187900116587 /* tactictoeTests.h */,
+				5AE604E416B1187900116587 /* tactictoeTests.m */,
+				5AE604DE16B1187900116587 /* Supporting Files */,
+			);
+			path = tactictoeTests;
+			sourceTree = "<group>";
+		};
+		5AE604DE16B1187900116587 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AE604DF16B1187900116587 /* tactictoeTests-Info.plist */,
+				5AE604E016B1187900116587 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5AE604A816B1187900116587 /* tactictoe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AE604E816B1187900116587 /* Build configuration list for PBXNativeTarget "tactictoe" */;
+			buildPhases = (
+				5AE604A516B1187900116587 /* Sources */,
+				5AE604A616B1187900116587 /* Frameworks */,
+				5AE604A716B1187900116587 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tactictoe;
+			productName = tactictoe;
+			productReference = 5AE604A916B1187900116587 /* tactictoe.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5AE604D516B1187900116587 /* tactictoeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AE604EB16B1187900116587 /* Build configuration list for PBXNativeTarget "tactictoeTests" */;
+			buildPhases = (
+				5AE604D116B1187900116587 /* Sources */,
+				5AE604D216B1187900116587 /* Frameworks */,
+				5AE604D316B1187900116587 /* Resources */,
+				5AE604D416B1187900116587 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AE604DC16B1187900116587 /* PBXTargetDependency */,
+			);
+			name = tactictoeTests;
+			productName = tactictoeTests;
+			productReference = 5AE604D616B1187900116587 /* tactictoeTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5AE604A016B1187900116587 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SN;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Swinging Sultan";
+			};
+			buildConfigurationList = 5AE604A316B1187900116587 /* Build configuration list for PBXProject "tactictoe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5AE6049E16B1187900116587;
+			productRefGroup = 5AE604AA16B1187900116587 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5AE604A816B1187900116587 /* tactictoe */,
+				5AE604D516B1187900116587 /* tactictoeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5AE604A716B1187900116587 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AE604B816B1187900116587 /* InfoPlist.strings in Resources */,
+				5AE604C016B1187900116587 /* Default.png in Resources */,
+				5AE604C216B1187900116587 /* Default@2x.png in Resources */,
+				5AE604C416B1187900116587 /* Default-568h@2x.png in Resources */,
+				5AE604C716B1187900116587 /* MainStoryboard_iPhone.storyboard in Resources */,
+				5AE604CA16B1187900116587 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AE604D316B1187900116587 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AE604E216B1187900116587 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5AE604D416B1187900116587 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5AE604A516B1187900116587 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AE604BA16B1187900116587 /* main.m in Sources */,
+				5AE604BE16B1187900116587 /* SNAppDelegate.m in Sources */,
+				5AE604CD16B1187900116587 /* SNMainViewController.m in Sources */,
+				5AE604D016B1187900116587 /* SNFlipsideViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AE604D116B1187900116587 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AE604E516B1187900116587 /* tactictoeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5AE604DC16B1187900116587 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AE604A816B1187900116587 /* tactictoe */;
+			targetProxy = 5AE604DB16B1187900116587 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5AE604B616B1187900116587 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AE604B716B1187900116587 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5AE604C516B1187900116587 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AE604C616B1187900116587 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		5AE604C816B1187900116587 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AE604C916B1187900116587 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		5AE604E016B1187900116587 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5AE604E116B1187900116587 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5AE604E616B1187900116587 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5AE604E716B1187900116587 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5AE604E916B1187900116587 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tactictoe/tactictoe-Prefix.pch";
+				INFOPLIST_FILE = "tactictoe/tactictoe-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5AE604EA16B1187900116587 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tactictoe/tactictoe-Prefix.pch";
+				INFOPLIST_FILE = "tactictoe/tactictoe-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5AE604EC16B1187900116587 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/tactictoe.app/tactictoe";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tactictoe/tactictoe-Prefix.pch";
+				INFOPLIST_FILE = "tactictoeTests/tactictoeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5AE604ED16B1187900116587 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/tactictoe.app/tactictoe";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "tactictoe/tactictoe-Prefix.pch";
+				INFOPLIST_FILE = "tactictoeTests/tactictoeTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5AE604A316B1187900116587 /* Build configuration list for PBXProject "tactictoe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AE604E616B1187900116587 /* Debug */,
+				5AE604E716B1187900116587 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AE604E816B1187900116587 /* Build configuration list for PBXNativeTarget "tactictoe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AE604E916B1187900116587 /* Debug */,
+				5AE604EA16B1187900116587 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5AE604EB16B1187900116587 /* Build configuration list for PBXNativeTarget "tactictoeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AE604EC16B1187900116587 /* Debug */,
+				5AE604ED16B1187900116587 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5AE604A016B1187900116587 /* Project object */;
+}
