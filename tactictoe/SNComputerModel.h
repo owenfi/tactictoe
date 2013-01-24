@@ -10,4 +10,6 @@
 
 @interface SNComputerModel : NSObject
 
+-(void)makeMove:(char*)board;
+
 @end

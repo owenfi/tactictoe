@@ -7,7 +7,10 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "SNComputerModel.h"
 
-@interface tactictoeTests : SenTestCase
+@interface tactictoeTests : SenTestCase {
+    SNComputerModel *ai;
+}
 
 @end

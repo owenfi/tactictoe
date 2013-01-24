@@ -7,20 +7,20 @@
 //
 
 #import "tactictoeTests.h"
-#import "SNComputerModel.h"
+
 
 @implementation tactictoeTests
 
 - (void)setUp
 {
     [super setUp];
-    
-    // Set-up code here.
+    ai = [[SNComputerModel alloc] init];
+    [ai retain];
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
+    [ai release];
     
     [super tearDown];
 }
@@ -28,6 +28,8 @@
 - (void)testFirstMove
 {
     // A test to make sure the computer is capable of making an initial move.
+    char gameBoard[3][3] = {{'e', 'e', 'e'},{'e', 'e', 'e'},{'e', 'e', 'e'}};
+    [ai makeMove:&gameBoard[0][0]];
     
 }
 

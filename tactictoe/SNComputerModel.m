@@ -21,4 +21,18 @@
  
 */
 
+//-(void)makeMove:(char gameBoard[][]) {
+//    
+//}
+
+-(void)makeMove:(char*) board {
+    NSLog(@"Print the board passed");
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            printf(" %c ",board[i*3+j]);
+        }
+        printf("\n");
+    }
+}
+
 @end
