@@ -25,7 +25,7 @@
 //    
 //}
 
--(void)makeMove:(char*) board {
+-(struct SNCoord)makeMove:(char*) board {
     NSLog(@"Print the board passed");
     for(int i = 0; i < 3; i++) {
         for(int j = 0; j < 3; j++) {
@@ -33,6 +33,11 @@
         }
         printf("\n");
     }
+    
+    struct SNCoord move;
+    move.x = 0;
+    move.y = 0;
+    return move;
 }
 
 @end

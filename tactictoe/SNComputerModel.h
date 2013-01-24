@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+// The coordinate system will be just like the arrays/UIView layout
+// (origin is in upper left)
+struct SNCoord {
+    int x, y;
+};
+
 @interface SNComputerModel : NSObject
 
--(void)makeMove:(char*)board;
+-(struct SNCoord)makeMove:(char*)board;
 
 @end

@@ -36,7 +36,10 @@
 - (void)testFirstMove
 {
     // A test to make sure the computer is capable of making an initial move.
-    [ai makeMove:gameBoard];
+    struct SNCoord position = [ai makeMove:gameBoard];
+    
+    STAssertTrue(position.x < 3, @"Should be within a 3x3 board, but x was %d", position.x);
+    STAssertTrue(position.y < 3, @"Should be within a 3x3 board, but y was %d", position.y);
     
 }
 
