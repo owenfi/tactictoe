@@ -26,18 +26,22 @@
 //}
 
 -(struct SNCoord)makeMove:(char*) board {
-    NSLog(@"Print the board passed");
+    [self printBoardDebug:board];
+    
+    struct SNCoord move;
+    move.x = 0;
+    move.y = 0;
+    return move;
+}
+
+-(void)printBoardDebug:(char *) board {
+    NSLog(@"Board:");
     for(int i = 0; i < 3; i++) {
         for(int j = 0; j < 3; j++) {
             printf(" %c ",board[i*3+j]);
         }
         printf("\n");
     }
-    
-    struct SNCoord move;
-    move.x = 0;
-    move.y = 0;
-    return move;
 }
 
 @end

@@ -17,5 +17,6 @@ struct SNCoord {
 @interface SNComputerModel : NSObject
 
 -(struct SNCoord)makeMove:(char*)board;
+-(void)printBoardDebug:(char *) board;
 
 @end
