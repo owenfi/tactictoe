@@ -36,75 +36,9 @@
     move.y = 0;
     
     
-    // BEWARE: X & Y Coordinates inside array are reversed from what makes sense
-    int winningPossibility = [self checkNextWin:board];
-    
-    NSLog(@"Board thinks the opponent win possibility (int) is %d",winningPossibility);
-    
-    switch (winningPossibility) {
-        case 8:
-            // go aggressively, take the corners first
-            if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
-       else if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
-       else if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
-       else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
-            break;
-        case 7: // diagonal from lower left
-            if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
-       else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
-       else if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
-            break;
-        case 6: // diagonal from upper left
-            if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
-       else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
-       else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
-            break;
-        case 5: // horiz bottom
-            if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
-       else if (board[3*2 + 1] == 'e') { move.y = 2; move.x = 1; }
-       else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
-            break;
-        case 4: // horiz mid
-            if (board[3*1 + 0] == 'e') { move.y = 1; move.x = 0; }
-       else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
-       else if (board[3*1 + 2] == 'e') { move.y = 1; move.x = 2; }
-            break;
-        case 3: // horiz top
-            if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
-       else if (board[3*0 + 1] == 'e') { move.y = 0; move.x = 1; }
-       else if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
-            break;
-        case 2: // vert right
-            if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
-       else if (board[3*1 + 2] == 'e') { move.y = 1; move.x = 2; }
-       else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
-            break;
-        case 1: // vert mid
-            if (board[3*0 + 1] == 'e') { move.y = 0; move.x = 1; }
-       else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
-       else if (board[3*2 + 1] == 'e') { move.y = 2; move.x = 1; }
-            break;
-        case 0: //vert left
-            if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
-       else if (board[3*1 + 0] == 'e') { move.y = 1; move.x = 0; }
-       else if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
-            break;
-        default:
-            break;
-    }
 
     
-
-    return move;
-}
-
-char getPlayerChar() {
-    return 'x';
-}
-
--(int)checkNextWin:(char*) board {
-    
-    /* There are 8 possible wins, iterate across the lines and see 
+    /* There are 8 possible wins, iterate across the lines and see
      if opponent is within strike distance (increment where they own space)
      if any row is ==2 then they can win
      0: vert left
@@ -114,8 +48,8 @@ char getPlayerChar() {
      4: horz middle
      5: horz bottom
      6: diag top-left
-     7: diag top-right 
-    */
+     7: diag top-right
+     */
     
     int lineCount[8] = {0};
     
@@ -183,20 +117,81 @@ char getPlayerChar() {
         lineCount[5]++;
         lineCount[6]++;
     }
-
+    
+    
+    /*
+     Now what happens: try aggressive strategy,
+     Count up across threatened lines, checking each one
+     Set move to block if a space is threatened and empty
+     */
+    // go aggressively, take the corners first
+    if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
+    else if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
+    else if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
+    else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
+    
+    
+    // BEWARE: X & Y Coordinates inside array are reversed from what makes sense
     for(int i = 0; i < 8; i++) {
-        if(lineCount[i] > 1) { // Shouldn't really see 3 or more in this method, but for safety use >1
-            // Return the first possible winning row
-            return i;
+        if(lineCount[i] > 1) {
+            NSLog(@"Threatened row = %d",i);
+            switch (i) {
+                case 7: // diagonal from lower left
+                    if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
+                    else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
+                    else if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
+                    break;
+                case 6: // diagonal from upper left
+                    if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
+                    else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
+                    else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
+                    break;
+                case 5: // horiz bottom
+                    if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
+                    else if (board[3*2 + 1] == 'e') { move.y = 2; move.x = 1; }
+                    else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
+                    break;
+                case 4: // horiz mid
+                    if (board[3*1 + 0] == 'e') { move.y = 1; move.x = 0; }
+                    else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
+                    else if (board[3*1 + 2] == 'e') { move.y = 1; move.x = 2; }
+                    break;
+                case 3: // horiz top
+                    if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; NSLog(@"A");}
+                    else if (board[3*0 + 1] == 'e') { move.y = 0; move.x = 1; NSLog(@"B");}
+                    else if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; NSLog(@"c");}
+                    break;
+                case 2: // vert right
+                    if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
+                    else if (board[3*1 + 2] == 'e') { move.y = 1; move.x = 2; }
+                    else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
+                    break;
+                case 1: // vert mid
+                    if (board[3*0 + 1] == 'e') { move.y = 0; move.x = 1; }
+                    else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
+                    else if (board[3*2 + 1] == 'e') { move.y = 2; move.x = 1; }
+                    break;
+                case 0: //vert left
+                    if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
+                    else if (board[3*1 + 0] == 'e') { move.y = 1; move.x = 0; }
+                    else if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
+                    break;
+                default:
+                    break;
+            }
+            
         }
     }
     
-    // indicates no possible winner next turn
-    return 8;
+    NSLog(@"Move suggested: (%d,%d)",move.x,move.y);
 
-    
-    
+    return move;
 }
+
+char getPlayerChar() {
+    return 'x';
+}
+
 -(void)printBoardDebug:(char *) board {
     NSLog(@"Board:");
     for(int i = 0; i < 3; i++) {
