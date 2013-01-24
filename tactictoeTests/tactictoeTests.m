@@ -47,7 +47,7 @@
 -(void)testSecondMove
 {
     // This will test a move where the computer plays second.
-    gameBoard[0+2] = 'x'; // Human "x" will move to upper right
+    gameBoard[3*0 + 2] = 'x'; // Human "x" will move to upper right
     
     struct SNCoord position = [ai makeMove:gameBoard];
 
@@ -60,12 +60,23 @@
     gameBoard[3*position.y+position.x] = 'o';
     
     [ai printBoardDebug:gameBoard];
+}
 
+-(void)test2InARow
+{
+    gameBoard[3*0 + 0] = 'x'; // Human "x" will move to upper right
+    gameBoard[3*0 + 2] = 'x'; // Human "x" will move to upper left
+    gameBoard[3*1 + 1] = 'o'; // Computer moves to middle-middle
+    
+    struct SNCoord pos = [ai makeMove:gameBoard];
+    
+    STAssertTrue(pos.x == 1 && pos.y == 0, @"Computer should have moved to block human");
     
 }
 
-
-
+// Test that even if the computer knows it will lose it still plays
+// Test the win move
+// Test that something is returned if the board is full
 
 
 @end
