@@ -11,6 +11,7 @@
 
 @interface tactictoeTests : SenTestCase {
     SNComputerModel *ai;
+    char *gameBoard;
 }
 
 @end

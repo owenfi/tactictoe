@@ -16,6 +16,14 @@
     [super setUp];
     ai = [[SNComputerModel alloc] init];
     [ai retain];
+
+    // Normally it would make sense to initialize to 0, but tic tac toe uses X and O
+    // and they look too similar so that would probably lead to making a stupid mistake
+    // thus I will initialize to 'e' for 'empty'.
+    gameBoard = malloc(9*sizeof(char));
+    for (int i = 0; i < 9; i++) {
+        gameBoard[i] = 'e';
+    }
 }
 
 - (void)tearDown
@@ -28,8 +36,7 @@
 - (void)testFirstMove
 {
     // A test to make sure the computer is capable of making an initial move.
-    char gameBoard[3][3] = {{'e', 'e', 'e'},{'e', 'e', 'e'},{'e', 'e', 'e'}};
-    [ai makeMove:&gameBoard[0][0]];
+    [ai makeMove:gameBoard];
     
 }
 
