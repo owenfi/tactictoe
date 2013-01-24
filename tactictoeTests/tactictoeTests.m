@@ -34,14 +34,35 @@
     [super tearDown];
 }
 
+
+// This will probably move the the actual game logic eventually
+// legal = 0; illegal = 1;
+-(int)isLegalMove:(struct SNCoord) pos onBoard:(char*) board {
+    if (pos.x > 2) {
+        return 1; // x out of bounds
+    }
+    if (pos.y > 2) {
+        return 2; // y out of bounds
+    }
+    
+    if (board[3*pos.y + pos.x] != 'e') {
+        return 3; // overlapping existing play
+    }
+    
+    return 0;
+}
+
 - (void)testFirstMove
 {
     // A test to make sure the computer is capable of making an initial move.
-    struct SNCoord position = [ai makeMove:gameBoard];
+    struct SNCoord pos = [ai makeMove:gameBoard];
     
-    STAssertTrue(position.x < 3, @"Should be within a 3x3 board, but x was %d", position.x);
-    STAssertTrue(position.y < 3, @"Should be within a 3x3 board, but y was %d", position.y);
+    STAssertTrue(pos.x < 3, @"Should be within a 3x3 board, but x was %d", pos.x);
+    STAssertTrue(pos.y < 3, @"Should be within a 3x3 board, but y was %d", pos.y);
     
+    int moveErr = [self isLegalMove:pos onBoard:gameBoard];
+    STAssertTrue(moveErr == 0, @"Illegal Move %d",moveErr);
+
 }
 
 -(void)testSecondMove
@@ -49,15 +70,18 @@
     // This will test a move where the computer plays second.
     gameBoard[3*0 + 2] = 'x'; // Human "x" will move to upper right
     
-    struct SNCoord position = [ai makeMove:gameBoard];
+    struct SNCoord pos = [ai makeMove:gameBoard];
 
     
-    STAssertTrue(position.x < 3, @"Should be within a 3x3 board, but x was %d", position.x);
-    STAssertTrue(position.y < 3, @"Should be within a 3x3 board, but y was %d", position.y);
-    STAssertTrue(!(position.x == 2 && position.y == 0), @"Not allowed to overlap human move");
+    STAssertTrue(pos.x < 3, @"Should be within a 3x3 board, but x was %d", pos.x);
+    STAssertTrue(pos.y < 3, @"Should be within a 3x3 board, but y was %d", pos.y);
+    STAssertTrue(!(pos.x == 2 && pos.y == 0), @"Not allowed to overlap human move");
     
+    int moveErr = [self isLegalMove:pos onBoard:gameBoard];
+    STAssertTrue(moveErr == 0, @"Illegal Move %d",moveErr);
+
     // Set this position to the computer's move
-    gameBoard[3*position.y+position.x] = 'o';
+    gameBoard[3*pos.y+pos.x] = 'o';
     
     [ai printBoardDebug:gameBoard];
 }
@@ -72,7 +96,26 @@
     
     STAssertTrue(pos.x == 1 && pos.y == 0, @"Computer should have moved to block human");
     
+    int moveErr = [self isLegalMove:pos onBoard:gameBoard];
+    STAssertTrue(moveErr == 0, @"Illegal Move %d",moveErr);
+
 }
+
+-(void)test2AlreadyBlocked
+{
+    gameBoard[3*0 + 0] = 'x'; // Human "x" moved to upper right
+    gameBoard[3*0 + 2] = 'x'; // Human "x" moved to upper left
+    gameBoard[3*0 + 1] = 'o'; // Computer moved to middle-middle
+    
+    struct SNCoord pos = [ai makeMove:gameBoard];
+    
+    int moveErr = [self isLegalMove:pos onBoard:gameBoard];
+    STAssertTrue(moveErr == 0, @"Illegal Move %d",moveErr);
+    
+    
+    
+}
+
 
 // Test that even if the computer knows it will lose it still plays
 // Test the win move
