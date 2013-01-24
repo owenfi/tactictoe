@@ -7,6 +7,7 @@
 //
 
 #import "tactictoeTests.h"
+#import "SNComputerModel.h"
 
 @implementation tactictoeTests
 
@@ -24,9 +25,10 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testFirstMove
 {
-    STFail(@"Unit tests are not implemented yet in tactictoeTests");
+    // A test to make sure the computer is capable of making an initial move.
+    
 }
 
 @end

@@ -25,6 +25,8 @@
 		5AE604DA16B1187900116587 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE604AF16B1187900116587 /* Foundation.framework */; };
 		5AE604E216B1187900116587 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AE604E016B1187900116587 /* InfoPlist.strings */; };
 		5AE604E516B1187900116587 /* tactictoeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE604E416B1187900116587 /* tactictoeTests.m */; };
+		5AE604F016B1191500116587 /* SNComputerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE604EF16B1191500116587 /* SNComputerModel.m */; };
+		5AE604F116B1191500116587 /* SNComputerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE604EF16B1191500116587 /* SNComputerModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		5AE604E116B1187900116587 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AE604E316B1187900116587 /* tactictoeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tactictoeTests.h; sourceTree = "<group>"; };
 		5AE604E416B1187900116587 /* tactictoeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tactictoeTests.m; sourceTree = "<group>"; };
+		5AE604EE16B1191500116587 /* SNComputerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNComputerModel.h; sourceTree = "<group>"; };
+		5AE604EF16B1191500116587 /* SNComputerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNComputerModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,8 @@
 				5AE604CE16B1187900116587 /* SNFlipsideViewController.h */,
 				5AE604CF16B1187900116587 /* SNFlipsideViewController.m */,
 				5AE604B416B1187900116587 /* Supporting Files */,
+				5AE604EE16B1191500116587 /* SNComputerModel.h */,
+				5AE604EF16B1191500116587 /* SNComputerModel.m */,
 			);
 			path = tactictoe;
 			sourceTree = "<group>";
@@ -284,6 +290,7 @@
 				5AE604BE16B1187900116587 /* SNAppDelegate.m in Sources */,
 				5AE604CD16B1187900116587 /* SNMainViewController.m in Sources */,
 				5AE604D016B1187900116587 /* SNFlipsideViewController.m in Sources */,
+				5AE604F016B1191500116587 /* SNComputerModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AE604E516B1187900116587 /* tactictoeTests.m in Sources */,
+				5AE604F116B1191500116587 /* SNComputerModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
