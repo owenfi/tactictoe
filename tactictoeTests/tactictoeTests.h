@@ -8,6 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "SNComputerModel.h"
+#import "SNMainViewController.h"
 
 @interface tactictoeTests : SenTestCase {
     SNComputerModel *ai;

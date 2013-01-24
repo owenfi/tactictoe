@@ -27,12 +27,78 @@
     self.g.text = @"";
     self.h.text = @"";
     self.i.text = @"";
+    
+    gameBoard = malloc(9*sizeof(char));
+    for (int i = 0; i < 9; i++) {
+        gameBoard[i] = 'e';
+    }
+}
 
+
+// This will probably move the the actual game logic eventually
+// legal = 0; illegal = 1;
+-(int)isLegalMove:(struct SNCoord) pos onBoard:(char*) board {
+    if (pos.x > 2) {
+        return 1; // x out of bounds
+    }
+    if (pos.y > 2) {
+        return 2; // y out of bounds
+    }
+    
+    if (board[3*pos.y + pos.x] != 'e') {
+        return 3; // overlapping existing play
+    }
+    
+    return 0;
 }
 
 -(IBAction)spotPicked:(id)sender {
-    NSLog(@"Player attempted to pick spot: %@", sender);
+    NSLog(@"Player attempted to pick spot: %d", ((UIView*)sender).tag);
     
+    char player = 'x';
+    
+    int pos = ((UIView*)sender).tag;
+    if(gameBoard[pos] == 'e') {
+        gameBoard[pos] = player;
+        NSLog(@"Setting the first to this player");
+
+        
+        NSString *playerLetter = [[NSString alloc] initWithFormat:@"%c",player];
+        
+        switch (pos) {
+            case 0:
+                NSLog(@"Setting the first to this player");
+                self.a.text = playerLetter;
+                break;
+            case 1:
+                self.b.text = playerLetter;
+                break;
+            case 2:
+                self.c.text = playerLetter;
+                break;
+            case 3:
+                self.d.text = playerLetter;
+                break;
+            case 4:
+                self.e.text = playerLetter;
+                break;
+            case 5:
+                self.f.text = playerLetter;
+                break;
+            case 6:
+                self.g.text = playerLetter;
+                break;
+            case 7:
+                self.h.text = playerLetter;
+                break;
+            case 8:
+                self.i.text = playerLetter;
+                break;
+                
+            default:
+                break;
+        }
+    }
 }
 - (void)didReceiveMemoryWarning
 {
@@ -72,8 +138,9 @@
 
 - (void)dealloc
 {
+    free(gameBoard);
     [_flipsidePopoverController release];
-    [super dealloc];
+    [super dealloc]; // Why do the iOS 6 docs say not to do the super call...?
 }
 
 - (IBAction)togglePopover:(id)sender

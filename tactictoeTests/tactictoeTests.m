@@ -35,22 +35,6 @@
 }
 
 
-// This will probably move the the actual game logic eventually
-// legal = 0; illegal = 1;
--(int)isLegalMove:(struct SNCoord) pos onBoard:(char*) board {
-    if (pos.x > 2) {
-        return 1; // x out of bounds
-    }
-    if (pos.y > 2) {
-        return 2; // y out of bounds
-    }
-    
-    if (board[3*pos.y + pos.x] != 'e') {
-        return 3; // overlapping existing play
-    }
-    
-    return 0;
-}
 
 - (void)testFirstMove
 {
