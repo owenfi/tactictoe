@@ -64,55 +64,10 @@
     else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
     
     
-    // BEWARE: X & Y Coordinates inside array are reversed from what makes sense
     for(int i = 0; i < 8; i++) {
         if(opponentLine[i] > 1) {
             NSLog(@"Threatened row = %d",i);
-            switch (i) {
-                case 7: // diagonal from lower left
-                    if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
-                    else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
-                    else if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
-                    break;
-                case 6: // diagonal from upper left
-                    if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
-                    else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
-                    else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
-                    break;
-                case 5: // horiz bottom
-                    if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
-                    else if (board[3*2 + 1] == 'e') { move.y = 2; move.x = 1; }
-                    else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
-                    break;
-                case 4: // horiz mid
-                    if (board[3*1 + 0] == 'e') { move.y = 1; move.x = 0; }
-                    else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
-                    else if (board[3*1 + 2] == 'e') { move.y = 1; move.x = 2; }
-                    break;
-                case 3: // horiz top
-                    if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0;}
-                    else if (board[3*0 + 1] == 'e') { move.y = 0; move.x = 1;}
-                    else if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2;}
-                    break;
-                case 2: // vert right
-                    if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
-                    else if (board[3*1 + 2] == 'e') { move.y = 1; move.x = 2; }
-                    else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
-                    break;
-                case 1: // vert mid
-                    if (board[3*0 + 1] == 'e') { move.y = 0; move.x = 1; }
-                    else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
-                    else if (board[3*2 + 1] == 'e') { move.y = 2; move.x = 1; }
-                    break;
-                case 0: //vert left
-                    if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
-                    else if (board[3*1 + 0] == 'e') { move.y = 1; move.x = 0; }
-                    else if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
-                    break;
-                default:
-                    break;
-            }
-            
+            move = findSpotToPlay(board, i, move);
         }
     }
     
@@ -123,6 +78,60 @@
 
 char getPlayerChar() {
     return 'x';
+}
+
+struct SNCoord findSpotToPlay(char *board, int i, struct SNCoord currentMove) {
+    struct SNCoord move;
+    move.x = currentMove.x;
+    move.y = currentMove.y;
+    
+    // BEWARE: X & Y Coordinates inside array are reversed from what makes sense
+    switch (i) {
+        case 7: // diagonal from lower left
+            if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
+            else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
+            else if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
+            break;
+        case 6: // diagonal from upper left
+            if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
+            else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
+            else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
+            break;
+        case 5: // horiz bottom
+            if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
+            else if (board[3*2 + 1] == 'e') { move.y = 2; move.x = 1; }
+            else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
+            break;
+        case 4: // horiz mid
+            if (board[3*1 + 0] == 'e') { move.y = 1; move.x = 0; }
+            else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
+            else if (board[3*1 + 2] == 'e') { move.y = 1; move.x = 2; }
+            break;
+        case 3: // horiz top
+            if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0;}
+            else if (board[3*0 + 1] == 'e') { move.y = 0; move.x = 1;}
+            else if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2;}
+            break;
+        case 2: // vert right
+            if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
+            else if (board[3*1 + 2] == 'e') { move.y = 1; move.x = 2; }
+            else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
+            break;
+        case 1: // vert mid
+            if (board[3*0 + 1] == 'e') { move.y = 0; move.x = 1; }
+            else if (board[3*1 + 1] == 'e') { move.y = 1; move.x = 1; }
+            else if (board[3*2 + 1] == 'e') { move.y = 2; move.x = 1; }
+            break;
+        case 0: //vert left
+            if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
+            else if (board[3*1 + 0] == 'e') { move.y = 1; move.x = 0; }
+            else if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
+            break;
+        default:
+            break;
+    }
+    
+    return move;
 }
 
 void testWinPossible(int *line, char player, char* board) {
