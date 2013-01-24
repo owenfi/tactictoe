@@ -27,8 +27,13 @@
     self.g.text = @"";
     self.h.text = @"";
     self.i.text = @"";
+
 }
 
+-(IBAction)spotPicked:(id)sender {
+    NSLog(@"Player attempted to pick spot: %@", sender);
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
