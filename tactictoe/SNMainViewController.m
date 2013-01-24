@@ -34,24 +34,6 @@
     }
 }
 
-
-// This will probably move the the actual game logic eventually
-// legal = 0; illegal = 1;
--(int)isLegalMove:(struct SNCoord) pos onBoard:(char*) board {
-    if (pos.x > 2) {
-        return 1; // x out of bounds
-    }
-    if (pos.y > 2) {
-        return 2; // y out of bounds
-    }
-    
-    if (board[3*pos.y + pos.x] != 'e') {
-        return 3; // overlapping existing play
-    }
-    
-    return 0;
-}
-
 -(IBAction)spotPicked:(id)sender {
     NSLog(@"Player attempted to pick spot: %d", ((UIView*)sender).tag);
     
@@ -59,47 +41,66 @@
     
     int pos = ((UIView*)sender).tag;
     if(gameBoard[pos] == 'e') {
-        gameBoard[pos] = player;
-        NSLog(@"Setting the first to this player");
+        
+        // If the person found a legal move they get that spot
+        [self applyMoveAtPosition:pos forPlayer:player];
 
         
-        NSString *playerLetter = [[NSString alloc] initWithFormat:@"%c",player];
-        
-        switch (pos) {
-            case 0:
-                NSLog(@"Setting the first to this player");
-                self.a.text = playerLetter;
-                break;
-            case 1:
-                self.b.text = playerLetter;
-                break;
-            case 2:
-                self.c.text = playerLetter;
-                break;
-            case 3:
-                self.d.text = playerLetter;
-                break;
-            case 4:
-                self.e.text = playerLetter;
-                break;
-            case 5:
-                self.f.text = playerLetter;
-                break;
-            case 6:
-                self.g.text = playerLetter;
-                break;
-            case 7:
-                self.h.text = playerLetter;
-                break;
-            case 8:
-                self.i.text = playerLetter;
-                break;
-                
-            default:
-                break;
-        }
+        // Now the computer goes (instantly, not very game like)
+        SNComputerModel *comp = [[SNComputerModel alloc] init];
+        struct SNCoord computersPlay = [comp makeMove:gameBoard];
+        [self applyMoveAtPosition:(3*computersPlay.y + computersPlay.x) forPlayer:'o'];
     }
 }
+
+-(void)applyMoveAtPosition:(int)position forPlayer:(char)player {
+    gameBoard[position] = player;
+    
+    NSString *playerLetter = [[NSString alloc] initWithFormat:@"%c",player];
+    
+    switch (position) {
+        case 0:
+            self.a.text = playerLetter;
+            self.ab.hidden = YES;
+            break;
+        case 1:
+            self.b.text = playerLetter;
+            self.bb.hidden = YES;
+            break;
+        case 2:
+            self.c.text = playerLetter;
+            self.cb.hidden = YES;
+            break;
+        case 3:
+            self.d.text = playerLetter;
+            self.db.hidden = YES;
+            break;
+        case 4:
+            self.e.text = playerLetter;
+            self.eb.hidden = YES;
+            break;
+        case 5:
+            self.f.text = playerLetter;
+            self.fb.hidden = YES;
+            break;
+        case 6:
+            self.g.text = playerLetter;
+            self.gb.hidden = YES;
+            break;
+        case 7:
+            self.h.text = playerLetter;
+            self.hb.hidden = YES;
+            break;
+        case 8:
+            self.i.text = playerLetter;
+            self.ib.hidden = YES;
+            break;
+            
+        default:
+            break;
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

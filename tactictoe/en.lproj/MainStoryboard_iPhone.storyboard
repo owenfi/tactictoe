@@ -130,7 +130,7 @@
                                             <action selector="spotPicked:" destination="2" eventType="touchUpInside" id="27s-SN-JtD"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="UaE-s7-0X2" userLabel="b">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="UaE-s7-0X2" userLabel="b">
                                         <rect key="frame" x="86" y="0.0" width="73" height="73"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>

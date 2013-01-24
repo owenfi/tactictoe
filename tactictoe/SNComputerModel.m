@@ -21,6 +21,21 @@
  
 */
 
+// Duplicated from unit test!
+-(int)isLegalMove:(struct SNCoord) pos onBoard:(char*) board {
+    if (pos.x > 2) {
+        return 1; // x out of bounds
+    }
+    if (pos.y > 2) {
+        return 2; // y out of bounds
+    }
+    
+    if (board[3*pos.y + pos.x] != 'e') {
+        return 3; // overlapping existing play
+    }
+    
+    return 0;
+}
 
 // There are a lot of ways to go about this strategy, but it seems like if we start
 // "defensively" blocking instant wins and then the 'obvious' play and then move
@@ -60,10 +75,26 @@
      Set move to block if a space is threatened and empty
      */
     // go aggressively, take the corners first
-    if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
-    else if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
-    else if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
-    else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
+
+    // This way was a bit naive - it doesn't take the middle in defense on turn 2
+//    if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
+//    else if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
+//    else if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
+//    else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
+    
+    if (   board[3*0 + 0] == 'e'
+        && board[3*0 + 2] == 'e'
+        && board[3*2 + 0] == 'e'
+        && board[3*2 + 2] == 'e' ) {
+        //In this case the player didn't take any corner and the computer will
+        move.y = 0; move.x = 0;
+        
+        // Might this get tripped up if the player knows comp goes in this corner?
+    } else {
+        move.y = 1; move.x = 1;
+    }
+    
+    
     
     
     for(int i = 0; i < 8; i++) {
@@ -77,6 +108,17 @@
         if(myLine[i] > 1) {
             NSLog(@"Moving in for the kill on row %d",i);
             move = findSpotToPlay(board, i, move);
+        }
+    }
+    
+    if([self isLegalMove:move onBoard:board] > 0) {
+        move.x = 0;
+        move.y = 0;
+        int index = 0;
+        while ([self isLegalMove:move onBoard:board] > 0) {
+            move.x = index % 3;
+            move.y = index/3 % 3;
+            index++;
         }
     }
     

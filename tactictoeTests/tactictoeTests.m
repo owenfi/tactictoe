@@ -34,7 +34,22 @@
     [super tearDown];
 }
 
-
+// This will probably move the the actual game logic eventually
+// legal = 0; illegal = 1;
+-(int)isLegalMove:(struct SNCoord) pos onBoard:(char*) board {
+    if (pos.x > 2) {
+        return 1; // x out of bounds
+    }
+    if (pos.y > 2) {
+        return 2; // y out of bounds
+    }
+    
+    if (board[3*pos.y + pos.x] != 'e') {
+        return 3; // overlapping existing play
+    }
+    
+    return 0;
+}
 
 - (void)testFirstMove
 {
@@ -112,6 +127,20 @@
     STAssertTrue(pos.x == 2 && pos.y == 2, @"Computer should win by going in 2,2; but went in %d,%d",pos.x,pos.y);
     
 }
+
+-(void)testPlayerStartsInCorner
+{
+    gameBoard[3*0 + 0] = 'x'; // e e e
+
+    
+    struct SNCoord pos = [ai makeMove:gameBoard];
+    
+    int moveErr = [self isLegalMove:pos onBoard:gameBoard];
+    STAssertTrue(moveErr == 0, @"Illegal Move %d",moveErr);
+    
+    STAssertTrue(pos.x == 1 && pos.y == 1, @"Computer needs to take middle to protect; but went in %d,%d",pos.x,pos.y);
+}
+
 // Test that even if the computer knows it will lose it still plays
 // Test the win move
 // Test that something is returned if the board is full
