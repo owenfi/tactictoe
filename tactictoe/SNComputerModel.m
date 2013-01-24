@@ -35,9 +35,6 @@
     move.x = 0;
     move.y = 0;
     
-    
-
-    
     /* There are 8 possible wins, iterate across the lines and see
      if opponent is within strike distance (increment where they own space)
      if any row is ==2 then they can win
@@ -118,7 +115,6 @@
         lineCount[6]++;
     }
     
-    
     /*
      Now what happens: try aggressive strategy,
      Count up across threatened lines, checking each one
@@ -157,9 +153,9 @@
                     else if (board[3*1 + 2] == 'e') { move.y = 1; move.x = 2; }
                     break;
                 case 3: // horiz top
-                    if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; NSLog(@"A");}
-                    else if (board[3*0 + 1] == 'e') { move.y = 0; move.x = 1; NSLog(@"B");}
-                    else if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; NSLog(@"c");}
+                    if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0;}
+                    else if (board[3*0 + 1] == 'e') { move.y = 0; move.x = 1;}
+                    else if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2;}
                     break;
                 case 2: // vert right
                     if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }

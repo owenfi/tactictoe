@@ -111,12 +111,23 @@
     
     int moveErr = [self isLegalMove:pos onBoard:gameBoard];
     STAssertTrue(moveErr == 0, @"Illegal Move %d",moveErr);
-    
-    
-    
 }
 
+-(void)testCompWin
+{
+    gameBoard[3*2 + 0] = 'o'; // e e e
+    gameBoard[3*2 + 1] = 'o'; // x x e
+    gameBoard[3*1 + 0] = 'x'; // o o e
+    gameBoard[3*1 + 1] = 'x';
 
+    struct SNCoord pos = [ai makeMove:gameBoard];
+    
+    int moveErr = [self isLegalMove:pos onBoard:gameBoard];
+    STAssertTrue(moveErr == 0, @"Illegal Move %d",moveErr);
+    
+    STAssertTrue(pos.x == 2 && pos.y == 2, @"Computer should win by going in 2,2; but went in %d,%d",pos.x,pos.y);
+    
+}
 // Test that even if the computer knows it will lose it still plays
 // Test the win move
 // Test that something is returned if the board is full
