@@ -49,8 +49,10 @@
      */
     
     int opponentLine[8] = {0};
+    int myLine[8] = {0};
     
     testWinPossible(opponentLine, 'x', board);
+    testWinPossible(myLine, 'o', board);
     
     /*
      Now what happens: try aggressive strategy,
@@ -67,6 +69,13 @@
     for(int i = 0; i < 8; i++) {
         if(opponentLine[i] > 1) {
             NSLog(@"Threatened row = %d",i);
+            move = findSpotToPlay(board, i, move);
+        }
+    }
+    
+    for(int i = 0; i < 8; i++) {
+        if(myLine[i] > 1) {
+            NSLog(@"Moving in for the kill on row %d",i);
             move = findSpotToPlay(board, i, move);
         }
     }
