@@ -29,6 +29,7 @@
 - (void)tearDown
 {
     [ai release];
+    free(gameBoard);
     
     [super tearDown];
 }
@@ -42,5 +43,29 @@
     STAssertTrue(position.y < 3, @"Should be within a 3x3 board, but y was %d", position.y);
     
 }
+
+-(void)testSecondMove
+{
+    // This will test a move where the computer plays second.
+    gameBoard[0+2] = 'x'; // Human "x" will move to upper right
+    
+    struct SNCoord position = [ai makeMove:gameBoard];
+
+    
+    STAssertTrue(position.x < 3, @"Should be within a 3x3 board, but x was %d", position.x);
+    STAssertTrue(position.y < 3, @"Should be within a 3x3 board, but y was %d", position.y);
+    STAssertTrue(!(position.x == 2 && position.y == 0), @"Not allowed to overlap human move");
+    
+    // Set this position to the computer's move
+    gameBoard[3*position.y+position.x] = 'o';
+    
+    [ai printBoardDebug:gameBoard];
+
+    
+}
+
+
+
+
 
 @end
