@@ -18,5 +18,6 @@ struct SNCoord {
 
 -(struct SNCoord)makeMove:(char*)board;
 -(void)printBoardDebug:(char *) board;
+-(void)testWinPossible:(int *)line forPlayer:(char)player onBoard:(char*) board;
 
 @end

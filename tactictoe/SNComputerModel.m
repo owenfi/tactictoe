@@ -66,8 +66,10 @@
     int opponentLine[8] = {0};
     int myLine[8] = {0};
     
-    testWinPossible(opponentLine, 'x', board);
-    testWinPossible(myLine, 'o', board);
+    [self testWinPossible:opponentLine forPlayer:'x' onBoard:board];
+    [self testWinPossible:myLine forPlayer:'o' onBoard:board];
+//    [self ]testWinPossible(opponentLine, 'x', board);
+//    testWinPossible(myLine, 'o', board);
     
     /*
      Now what happens: try aggressive strategy,
@@ -185,8 +187,7 @@ struct SNCoord findSpotToPlay(char *board, int i, struct SNCoord currentMove) {
     return move;
 }
 
-void testWinPossible(int *line, char player, char* board) {
-    // 1. Oof, this could probably get rewritten
+-(void)testWinPossible:(int *)line forPlayer:(char)player onBoard:(char*) board {    // 1. Oof, this could probably get rewritten
     // Luckily that's why I'm writing unit tests (do it later)
     // 2. Ha, writing the numbers out makes the pattern fairly obvious
     // Still waiting to refactor, because diagonals are a bit odd (modulo something?)

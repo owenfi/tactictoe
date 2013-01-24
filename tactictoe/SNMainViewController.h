@@ -9,7 +9,7 @@
 #import "SNFlipsideViewController.h"
 #import "SNComputerModel.h"
 
-@interface SNMainViewController : UIViewController <SNFlipsideViewControllerDelegate, UIPopoverControllerDelegate> {
+@interface SNMainViewController : UIViewController <SNFlipsideViewControllerDelegate, UIPopoverControllerDelegate, UIAlertViewDelegate> {
     char *gameBoard;
 }
 
@@ -19,5 +19,6 @@
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 
 -(IBAction)spotPicked:(id)sender;
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 @end
