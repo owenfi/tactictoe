@@ -48,72 +48,9 @@
      7: diag top-right
      */
     
-    int lineCount[8] = {0};
+    int opponentLine[8] = {0};
     
-    // 1. Oof, this could probably get rewritten
-    // Luckily that's why I'm writing unit tests (do it later)
-    // 2. Ha, writing the numbers out makes the pattern fairly obvious
-    // Still waiting to refactor, because diagonals are a bit odd (modulo something?)
-    
-    // Upper left, 0,3,6
-    if (board[3*0 + 0] == getPlayerChar()) {
-        lineCount[0]++;
-        lineCount[3]++;
-        lineCount[6]++;
-    }
-    
-    // Upper mid, 1, 3
-    if (board[3*0 + 1] == getPlayerChar()) {
-        lineCount[1]++;
-        lineCount[3]++;
-    }
-    
-    // Upper right, 2,3,7
-    if (board[3*0 + 2] == getPlayerChar()) {
-        lineCount[2]++;
-        lineCount[3]++;
-        lineCount[7]++;
-    }
-    
-    // Mid left, 0,4
-    if (board[3*1 + 0] == getPlayerChar()) {
-        lineCount[0]++;
-        lineCount[4]++;
-    }
-    
-    // Mid mid, 1,4,6,7
-    if (board[3*1 + 1] == getPlayerChar()) {
-        lineCount[1]++;
-        lineCount[4]++;
-        lineCount[6]++;
-        lineCount[7]++;
-    }
-    
-    // Mid right 2,4
-    if (board[3*1 + 2] == getPlayerChar()) {
-        lineCount[2]++;
-        lineCount[4]++;
-    }
-    
-    // Bot left 0,5,7
-    if (board[3*2 + 0] == getPlayerChar()) {
-        lineCount[0]++;
-        lineCount[5]++;
-        lineCount[7]++;
-    }
-    
-    // Bot mid 1,5
-    if (board[3*2 + 1] == getPlayerChar()) {
-        lineCount[1]++;
-        lineCount[5]++;
-    }
-    
-    // Bot right 2,5,6
-    if (board[3*2 + 2] == getPlayerChar()) {
-        lineCount[2]++;
-        lineCount[5]++;
-        lineCount[6]++;
-    }
+    testWinPossible(opponentLine, 'x', board);
     
     /*
      Now what happens: try aggressive strategy,
@@ -129,7 +66,7 @@
     
     // BEWARE: X & Y Coordinates inside array are reversed from what makes sense
     for(int i = 0; i < 8; i++) {
-        if(lineCount[i] > 1) {
+        if(opponentLine[i] > 1) {
             NSLog(@"Threatened row = %d",i);
             switch (i) {
                 case 7: // diagonal from lower left
@@ -186,6 +123,73 @@
 
 char getPlayerChar() {
     return 'x';
+}
+
+void testWinPossible(int *line, char player, char* board) {
+    // 1. Oof, this could probably get rewritten
+    // Luckily that's why I'm writing unit tests (do it later)
+    // 2. Ha, writing the numbers out makes the pattern fairly obvious
+    // Still waiting to refactor, because diagonals are a bit odd (modulo something?)
+    
+    // Upper left, 0,3,6
+    if (board[3*0 + 0] == player) {
+        line[0]++;
+        line[3]++;
+        line[6]++;
+    }
+    
+    // Upper mid, 1, 3
+    if (board[3*0 + 1] == player) {
+        line[1]++;
+        line[3]++;
+    }
+    
+    // Upper right, 2,3,7
+    if (board[3*0 + 2] == player) {
+        line[2]++;
+        line[3]++;
+        line[7]++;
+    }
+    
+    // Mid left, 0,4
+    if (board[3*1 + 0] == player) {
+        line[0]++;
+        line[4]++;
+    }
+    
+    // Mid mid, 1,4,6,7
+    if (board[3*1 + 1] == player) {
+        line[1]++;
+        line[4]++;
+        line[6]++;
+        line[7]++;
+    }
+    
+    // Mid right 2,4
+    if (board[3*1 + 2] == player) {
+        line[2]++;
+        line[4]++;
+    }
+    
+    // Bot left 0,5,7
+    if (board[3*2 + 0] == player) {
+        line[0]++;
+        line[5]++;
+        line[7]++;
+    }
+    
+    // Bot mid 1,5
+    if (board[3*2 + 1] == player) {
+        line[1]++;
+        line[5]++;
+    }
+    
+    // Bot right 2,5,6
+    if (board[3*2 + 2] == player) {
+        line[2]++;
+        line[5]++;
+        line[6]++;
+    }
 }
 
 -(void)printBoardDebug:(char *) board {
