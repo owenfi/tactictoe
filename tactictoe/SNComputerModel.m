@@ -79,7 +79,11 @@
     if (   board[3*0 + 0] == 'e'
         && board[3*0 + 2] == 'e'
         && board[3*2 + 0] == 'e'
-        && board[3*2 + 2] == 'e' ) {
+        && board[3*2 + 2] == 'e'
+        && board[3*0 + 1] == 'e'
+        && board[3*1 + 0] == 'e'
+        && board[3*1 + 2] == 'e'
+        && board[3*2 + 1] == 'e' ) {
         //In this case the player didn't take any corner and the computer will
         move.y = 0; move.x = 0;
         
