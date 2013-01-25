@@ -197,6 +197,37 @@
     STAssertTrue(gameBoard[3*1 + 1] == 'o', @"Computer needs to block human win.");
 }
 
+-(void)testHumanDiagWin
+{
+    // Another human win strategy was found through testing.
+    gameBoard[3*0 + 0] = 'x'; // move to upper left
+    
+    // Computer play
+    struct SNCoord pos = [ai makeMove:gameBoard];
+    gameBoard[3*pos.y + pos.x] = 'o';
+    
+    if (gameBoard[3*1 + 2] == 'e') {
+        gameBoard[3*1 + 2] = 'x'; // move to mid right
+    } else {
+        STFail(@"The AI got inside our mind!");
+    }
+    
+    // Computer play 2
+    pos = [ai makeMove:gameBoard];
+    gameBoard[3*pos.y + pos.x] = 'o';
+    
+    
+    if (gameBoard[3*2 + 1] == 'e') {
+        gameBoard[3*2 + 1] = 'x'; // move to lower mid
+    } else {
+        STFail(@"The AI got inside our mind!");
+    }
+    
+    // This is the way it was playing out, but by this point it is too late.
+    
+    STAssertTrue(gameBoard[3*2 + 0] == 'o', @"Computer needs to block human win.");
+}
+
 // Test that something is returned if the board is full
 
 
