@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A108EAB16B3051300B42241 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A108EAA16B3051300B42241 /* icon144.png */; };
+		5A108EAD16B3055600B42241 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A108EAC16B3055600B42241 /* icon72.png */; };
+		5A108EAF16B3058A00B42241 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A108EAE16B3058A00B42241 /* icon114.png */; };
+		5A108EB116B3058C00B42241 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A108EB016B3058C00B42241 /* icon57.png */; };
 		5AE604AE16B1187900116587 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE604AD16B1187900116587 /* UIKit.framework */; };
 		5AE604B016B1187900116587 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE604AF16B1187900116587 /* Foundation.framework */; };
 		5AE604B216B1187900116587 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE604B116B1187900116587 /* CoreGraphics.framework */; };
@@ -40,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A108EAA16B3051300B42241 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon144.png; sourceTree = "<group>"; };
+		5A108EAC16B3055600B42241 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon72.png; sourceTree = "<group>"; };
+		5A108EAE16B3058A00B42241 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
+		5A108EB016B3058C00B42241 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		5AE604A916B1187900116587 /* tactictoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tactictoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE604AD16B1187900116587 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5AE604AF16B1187900116587 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,6 +104,10 @@
 		5AE6049E16B1187900116587 = {
 			isa = PBXGroup;
 			children = (
+				5A108EB016B3058C00B42241 /* icon57.png */,
+				5A108EAE16B3058A00B42241 /* icon114.png */,
+				5A108EAC16B3055600B42241 /* icon72.png */,
+				5A108EAA16B3051300B42241 /* icon144.png */,
 				5AE604B316B1187900116587 /* tactictoe */,
 				5AE604DD16B1187900116587 /* tactictoeTests */,
 				5AE604AC16B1187900116587 /* Frameworks */,
@@ -252,6 +264,10 @@
 				5AE604C416B1187900116587 /* Default-568h@2x.png in Resources */,
 				5AE604C716B1187900116587 /* MainStoryboard_iPhone.storyboard in Resources */,
 				5AE604CA16B1187900116587 /* MainStoryboard_iPad.storyboard in Resources */,
+				5A108EAB16B3051300B42241 /* icon144.png in Resources */,
+				5A108EAD16B3055600B42241 /* icon72.png in Resources */,
+				5A108EAF16B3058A00B42241 /* icon114.png in Resources */,
+				5A108EB116B3058C00B42241 /* icon57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +490,7 @@
 				5AE604EA16B1187900116587 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5AE604EB16B1187900116587 /* Build configuration list for PBXNativeTarget "tactictoeTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +499,7 @@
 				5AE604ED16B1187900116587 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
