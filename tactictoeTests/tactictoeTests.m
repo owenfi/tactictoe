@@ -15,7 +15,6 @@
 {
     [super setUp];
     ai = [[SNComputerModel alloc] init];
-    [ai retain];
 
     // Normally it would make sense to initialize to 0, but tic tac toe uses X and O
     // and they look too similar so that would probably lead to making a stupid mistake

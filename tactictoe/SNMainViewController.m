@@ -66,7 +66,7 @@
             [self applyMoveAtPosition:(3*computersPlay.y + computersPlay.x) forPlayer:'o'];
             
             [self isGameOver:gameBoard];
-
+            [comp release];
         }
     }
 }
@@ -86,11 +86,11 @@
     for(int i = 0; i < 9; i++) {
         if(opponentLine[i] == 3) {
             // Show Alert for human win and reset game
-            UIAlertView *win = [[UIAlertView alloc] initWithTitle:@"Winner!" message:@"Humans win this round... Somehow." delegate:self cancelButtonTitle:@"Great!" otherButtonTitles:nil, nil];
+            UIAlertView *win = [[[UIAlertView alloc] initWithTitle:@"Winner!" message:@"Humans win this round... Somehow." delegate:self cancelButtonTitle:@"Great!" otherButtonTitles:nil, nil] autorelease];
             [win show];
             gameOver = YES;
         } else if (myLine[i] == 3) {
-            UIAlertView *lose = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"Score one for the robots." delegate:self cancelButtonTitle:@":(" otherButtonTitles:nil, nil];
+            UIAlertView *lose = [[[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"Score one for the robots." delegate:self cancelButtonTitle:@":(" otherButtonTitles:nil, nil] autorelease];
             [lose show];
             // Robots win this time and reset game
             gameOver = YES;
@@ -103,8 +103,8 @@
     
     if(!emptySpaces) {
         NSLog(@"");
-        UIAlertView *lose = [[UIAlertView alloc] initWithTitle:@"Cat's Game!" message:@"Looks like a draw." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-        [lose show];
+        UIAlertView *draw = [[[UIAlertView alloc] initWithTitle:@"Cat's Game!" message:@"Looks like a draw." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] autorelease];
+        [draw show];
     }
     
     return gameOver || !emptySpaces ;
@@ -162,6 +162,8 @@
         default:
             break;
     }
+    
+    [playerLetter release];
 }
 
 - (void)didReceiveMemoryWarning
