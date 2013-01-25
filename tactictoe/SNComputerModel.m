@@ -102,6 +102,30 @@
         move.y = 2;
     }
     
+    // Another special case
+    if (   board[3*0 + 2] == 'x'
+        && board[3*2 + 1] == 'x'
+        && board[3*1 + 2] == 'e' ) {
+        move.x = 0;
+        move.y = 1;
+    }
+    // Mirror of above special case
+    if (   board[3*0 + 0] == 'x'
+        && board[3*2 + 1] == 'x'
+        && board[3*1 + 2] == 'e' ) {
+        move.x = 2;
+        move.y = 1;
+    }
+    
+    // Another special case
+    if (   board[3*1 + 1] == 'x'
+        && board[3*2 + 2] == 'x'
+        && board[3*0 + 2] == 'e' ) {
+        move.x = 2;
+        move.y = 0;
+    }
+
+    
     for(int i = 0; i < 8; i++) {
         if(opponentLine[i] > 1) {
             move = findSpotToPlay(board, i, move);
@@ -114,11 +138,13 @@
         }
     }
     
-    if([self isLegalMove:move onBoard:board] > 0) {
+    int legal = [self isLegalMove:move onBoard:board];
+    if(legal > 0) {
         move.x = 0;
         move.y = 0;
         int index = 0;
         while ([self isLegalMove:move onBoard:board] > 0) {
+                    NSLog(@"In the special case 6");
             move.x = index % 3;
             move.y = index/3 % 3;
             index++;
