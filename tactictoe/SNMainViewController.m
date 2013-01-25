@@ -102,17 +102,16 @@
     }
     
     if(!emptySpaces) {
-        NSLog(@"");
         UIAlertView *draw = [[[UIAlertView alloc] initWithTitle:@"Cat's Game!" message:@"Looks like a draw." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] autorelease];
         [draw show];
     }
     
+    [testModel release];
     return gameOver || !emptySpaces ;
     
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSLog(@"Closed the alert");
     [self resetGame];
 }
 

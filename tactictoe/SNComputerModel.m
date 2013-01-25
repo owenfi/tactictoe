@@ -68,22 +68,14 @@
     
     [self testWinPossible:opponentLine forPlayer:'x' onBoard:board];
     [self testWinPossible:myLine forPlayer:'o' onBoard:board];
-//    [self ]testWinPossible(opponentLine, 'x', board);
-//    testWinPossible(myLine, 'o', board);
     
     /*
      Now what happens: try aggressive strategy,
      Count up across threatened lines, checking each one
      Set move to block if a space is threatened and empty
      */
-    // go aggressively, take the corners first
-
-    // This way was a bit naive - it doesn't take the middle in defense on turn 2
-//    if (board[3*0 + 0] == 'e') { move.y = 0; move.x = 0; }
-//    else if (board[3*0 + 2] == 'e') { move.y = 0; move.x = 2; }
-//    else if (board[3*2 + 0] == 'e') { move.y = 2; move.x = 0; }
-//    else if (board[3*2 + 2] == 'e') { move.y = 2; move.x = 2; }
     
+    // go aggressively, take the corners first
     if (   board[3*0 + 0] == 'e'
         && board[3*0 + 2] == 'e'
         && board[3*2 + 0] == 'e'
@@ -98,19 +90,14 @@
         move.y = 1; move.x = 1;
     }
     
-    
-    
-    
     for(int i = 0; i < 8; i++) {
         if(opponentLine[i] > 1) {
-            NSLog(@"Threatened row = %d",i);
             move = findSpotToPlay(board, i, move);
         }
     }
     
     for(int i = 0; i < 8; i++) {
         if(myLine[i] > 1) {
-            NSLog(@"Moving in for the kill on row %d",i);
             move = findSpotToPlay(board, i, move);
         }
     }
@@ -126,7 +113,7 @@
         }
     }
     
-    NSLog(@"Move suggested: (%d,%d)",move.x,move.y);
+    //NSLog(@"Move suggested: (%d,%d)",move.x,move.y);
 
     return move;
 }
