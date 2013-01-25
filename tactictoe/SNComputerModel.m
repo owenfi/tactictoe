@@ -94,6 +94,14 @@
         move.y = 1; move.x = 1;
     }
     
+    // Special case for last human win.pr
+    if (   board[3*0 + 0] == 'x'
+        && board[3*1 + 2] == 'x'
+        && board[3*0 + 2] == 'e' ) {
+        move.x = 0;
+        move.y = 2;
+    }
+    
     for(int i = 0; i < 8; i++) {
         if(opponentLine[i] > 1) {
             move = findSpotToPlay(board, i, move);
