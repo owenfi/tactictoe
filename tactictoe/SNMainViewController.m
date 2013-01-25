@@ -83,13 +83,15 @@
     [testModel testWinPossible:opponentLine forPlayer:'x' onBoard:board];
     [testModel testWinPossible:myLine forPlayer:'o' onBoard:board];
 
-    for(int i = 0; i < 9; i++) {
+    for(int i = 0; i < 8; i++) {
         if(opponentLine[i] == 3) {
             // Show Alert for human win and reset game
+            NSLog(@"Player wins on line: %d",i);
             UIAlertView *win = [[[UIAlertView alloc] initWithTitle:@"Winner!" message:@"Humans win this round... Somehow." delegate:self cancelButtonTitle:@"Great!" otherButtonTitles:nil, nil] autorelease];
             [win show];
             gameOver = YES;
         } else if (myLine[i] == 3) {
+            NSLog(@"Computer wins on line: %d",i);
             UIAlertView *lose = [[[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"Score one for the robots." delegate:self cancelButtonTitle:@":(" otherButtonTitles:nil, nil] autorelease];
             [lose show];
             // Robots win this time and reset game
@@ -101,7 +103,7 @@
         }
     }
     
-    if(!emptySpaces) {
+    if(!emptySpaces && !gameOver) {
         UIAlertView *draw = [[[UIAlertView alloc] initWithTitle:@"Cat's Game!" message:@"Looks like a draw." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] autorelease];
         [draw show];
     }
