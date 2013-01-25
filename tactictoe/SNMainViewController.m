@@ -97,9 +97,12 @@
             // Robots win this time and reset game
             gameOver = YES;
         }
-        
+
+    }
+    
+    for(int i = 0; i < 9; i++) {
         if (board[i] == 'e') {
-                emptySpaces = YES;
+            emptySpaces = YES;
         }
     }
     
