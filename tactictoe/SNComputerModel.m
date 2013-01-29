@@ -124,7 +124,23 @@
         move.x = 2;
         move.y = 0;
     }
-
+    
+    //The bottom corner L protectors
+    if (   board[3*2 + 1] == 'x'
+        && board[3*1 + 2] == 'x'
+        && board[3*2 + 2] == 'e' ) {
+        move.x = 2;
+        move.y = 2;
+    }
+    
+    
+    if (   board[3*2 + 1] == 'x'
+        && board[3*1 + 0] == 'x'
+        && board[3*2 + 0] == 'e' ) {
+        move.x = 0;
+        move.y = 2;
+    }
+    
     
     for(int i = 0; i < 8; i++) {
         if(opponentLine[i] > 1) {
