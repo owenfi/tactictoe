@@ -306,6 +306,8 @@
         STFail(@"The AI got inside our mind!");
     }
     
+    pos = [ai makeMove:gameBoard];
+    gameBoard[3*pos.y + pos.x] = 'o';
     // This is the way it was playing out, but by this point it is too late.
     
     STAssertTrue(gameBoard[3*2 + 2] == 'o', @"Computer needs to block human win.");
